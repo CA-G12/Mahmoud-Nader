@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import CardsComponents from './components/CardsComponents';
+import Spinner from './components/Spinner';
 class App extends Component {
   state = { data: null, };
   
@@ -16,7 +17,7 @@ class App extends Component {
   }
 
   render() { 
-    if (!this.state.data) return <div>Loading...</div>;
+    if (!this.state.data) return <Spinner />;
     const { movies } = this.state.data;
     // console.log(movies);
     // console.log(this.state.data.movies);
