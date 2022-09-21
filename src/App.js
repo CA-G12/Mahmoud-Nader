@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import CardsComponents from './components/CardsComponents';
 import Spinner from './components/Spinner';
+import HeaderComponents from './components/HeaderComponent';
 class App extends Component {
   state = { data: null, };
   
@@ -23,7 +24,8 @@ class App extends Component {
     // console.log(this.state.data.movies);
     return (
       <>
-      <div className='cardsHeader'><h2>All Movies</h2></div>
+      <HeaderComponents/>
+      <div className='cardsHeader' id = "movies"><h2>All Movies</h2></div>
       <div id = 'contanerAllCards'>
       {movies.map((movie) => <CardsComponents movie={movie}/>)}
       </div>

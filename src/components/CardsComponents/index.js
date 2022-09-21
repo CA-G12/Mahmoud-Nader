@@ -3,7 +3,6 @@ import "./style.css";
 class CardsComponents extends Component {
   render() {
     const { movie } = this.props;
-    console.log(movie);
     return (
           <div className="card">
             <img className="img-card" src={movie.large_cover_image} alt=""/>
