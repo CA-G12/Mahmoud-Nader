@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
+import CardsComponents from './components/CardsComponents';
 class App extends Component {
   state = { data: null, };
   
@@ -17,11 +18,17 @@ class App extends Component {
   render() { 
     if (!this.state.data) return <div>Loading...</div>;
     const { movies } = this.state.data;
-    console.log(movies);
-    console.log(this.state.data.movies);
+    // console.log(movies);
+    // console.log(this.state.data.movies);
     return (
-      <>{movies.map((movie) => <div><p key={movie.id}>{movie.title}</p></div>)}</>
+      <>
+      <div className='cardsHeader'><h2>All Movies</h2></div>
+      <div id = 'contanerAllCards'>
+      {movies.map((movie) => <CardsComponents movie={movie}/>)}
+      </div>
+      </>
      );
+
   }
 }
 
