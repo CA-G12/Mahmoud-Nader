@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/CA-G12/Mahmoud-Nader/static/css/main.68062bab.css",
+    "main.js": "/CA-G12/Mahmoud-Nader/static/js/main.7b6ee2ea.js",
+    "static/media/624649.jpg": "/CA-G12/Mahmoud-Nader/static/media/624649.f47e7cf1550cb44283ce.jpg",
+    "index.html": "/CA-G12/Mahmoud-Nader/index.html",
+    "main.68062bab.css.map": "/CA-G12/Mahmoud-Nader/static/css/main.68062bab.css.map",
+    "main.7b6ee2ea.js.map": "/CA-G12/Mahmoud-Nader/static/js/main.7b6ee2ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.68062bab.css",
+    "static/js/main.7b6ee2ea.js"
+  ]
+}
