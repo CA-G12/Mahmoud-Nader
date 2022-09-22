@@ -20,13 +20,11 @@ class SearchBar extends Component {
             required
             onChange={(e) => {
               this.props.onSearch(e.target.value);
-              // this.setState(isFindResult:true)
             }}
           />
           <label htmlFor="search" className="form__label">
             Search
           </label>
-          <p className={this.state.isFindResult ? "error__msg" : null}>No result found</p>
         </div>
       </div>
     );

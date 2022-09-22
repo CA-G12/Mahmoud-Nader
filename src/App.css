@@ -32,6 +32,13 @@ body{
   color: #61dafb;
 }
 
+.show__more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

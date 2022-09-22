@@ -8,7 +8,8 @@ class App extends Component {
   state = {
     data: null,
     searchWord: "",
-    filteredData: null, 
+    filteredData: null,
+    initialValue: 32,
   };
 
   componentDidMount() {
@@ -39,10 +40,26 @@ class App extends Component {
     }
   };
 
+  handleShowMoreBtn = () => {
+    let initialValue = this.state.initialValue + 10;
+
+    this.setState({ ...this.state, initialValue });
+    fetch(`https://yts.mx/api/v2/list_movies.json?limit=${initialValue}&page=2`)
+      .then((res) => {
+        if (!res.ok) throw new Error("HTTP error");
+        return res;
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ ...this.state, data, filteredData: data.data.movies });
+      });
+  };
+
   render() {
     if (!this.state.data) return <Spinner />;
-    const filteredData = this.state.filteredData.sort((a,b) => (a.rating < b.rating ) ? 1 : ((b.rating  < a.rating ) ? -1 : 0));
-
+    const filteredData = this.state.filteredData.sort((a, b) =>
+      a.rating < b.rating ? 1 : b.rating < a.rating ? -1 : 0
+    );
 
     return (
       <>
@@ -55,6 +72,11 @@ class App extends Component {
           {filteredData.map((movie) => (
             <CardsComponents key={movie.id} movie={movie} />
           ))}
+        </div>
+        <div className="show__more">
+          <button  onClick={this.handleShowMoreBtn}>
+            show more
+          </button>
         </div>
       </>
     );
