@@ -1,6 +1,8 @@
 .center {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: 2rem 0;
 }
 .form__group {
@@ -73,4 +75,8 @@
     min-height: 100vh;
     font-size: 1.5rem;
     background-color: #222222;
+  }
+
+  .error__msg {
+    color: red;
   }
