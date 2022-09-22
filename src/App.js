@@ -8,7 +8,7 @@ class App extends Component {
   state = {
     data: null,
     searchWord: "",
-    filteredData: null,
+    filteredData: null, 
   };
 
   componentDidMount() {
@@ -41,7 +41,8 @@ class App extends Component {
 
   render() {
     if (!this.state.data) return <Spinner />;
-    const filteredData = this.state.filteredData;
+    const filteredData = this.state.filteredData.sort((a,b) => (a.rating < b.rating ) ? 1 : ((b.rating  < a.rating ) ? -1 : 0));
+
 
     return (
       <>
@@ -52,7 +53,7 @@ class App extends Component {
         <SearchBar onSearch={this.handleSearch} />
         <div id="containerAllCards">
           {filteredData.map((movie) => (
-            <CardsComponents movie={movie} />
+            <CardsComponents key={movie.id} movie={movie} />
           ))}
         </div>
       </>

@@ -23,7 +23,7 @@ class SearchBar extends Component {
               // this.setState(isFindResult:true)
             }}
           />
-          <label for="search" className="form__label">
+          <label htmlFor="search" className="form__label">
             Search
           </label>
           <p className={this.state.isFindResult ? "error__msg" : null}>No result found</p>
