@@ -410,3 +410,55 @@ button:hover::after {
     transform: translate(0);
   }
 }
+
+/* new card css */
+
+.imgDivAll {
+  margin: 20px;
+  color: white;
+  width: 300px;
+  background-color: rgb(0, 0, 0);
+  position: relative;
+  transition: all 0.2s linear !important;
+}
+.imgDiv {
+  width: 300px;
+  border-radius: 20px;
+}
+.imgDiv:hover {
+  box-shadow: 2px 4px 25px  #00bbbb;
+}
+
+.overlay {
+  padding: 10px;
+  text-align: center;
+  opacity: 0.8;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.h2Name {
+  padding: 5px;
+}
+.overlay a {
+  margin: 5px;
+  pointer-events: fill;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background-color: #00bbbb;
+  opacity: 1;
+  border-radius: 5px;
+  padding: 5px;
+}
+.overlay a:hover {
+  color: rgb(255, 255, 255);
+  padding: 10px;
+}
+.h2Name {
+  padding: 5px;
+}
