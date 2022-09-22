@@ -16,6 +16,8 @@ class CardsComponents extends Component {
         <img className="imgDiv" src={movie.large_cover_image} alt = "" />
         <div className="overlay">
           <h3 className="h2Name">{movie.title}</h3>
+          <br/>
+          <p className="p-movie-name"><span class="fa fa-star checked"></span>{movie.rating}</p>
           <a href={movie.url} target="_blank" rel="noreferrer" >
             See Video
           </a>
