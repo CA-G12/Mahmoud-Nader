@@ -5,7 +5,11 @@ import SearchBar from "./components/SearchBar";
 import Spinner from "./components/Spinner";
 import HeaderComponents from "./components/HeaderComponent";
 class App extends Component {
-  state = { data: null };
+  state = {
+    data: null,
+    searchWord: "",
+    filteredData: null,
+  };
 
   componentDidMount() {
     fetch(`https://yts.mx/api/v2/list_movies.json?limit=32&page=2`)
@@ -14,23 +18,40 @@ class App extends Component {
         return res;
       })
       .then((res) => res.json())
-      .then((data) => this.setState(data));
+      .then((data) => {
+        this.setState({ ...this.state, data, filteredData: data.data.movies });
+      });
   }
+
+  handleSearch = (word) => {
+    const searchWord = word;
+    this.setState({ ...this.state, searchWord });
+    const arr = this.state.data.data.movies;
+    let filteredData = arr.filter((movie) => {
+      return movie.title.toLowerCase().includes(searchWord);
+    });
+
+    this.setState({ ...this.state, filteredData });
+
+    if (!filteredData.length || searchWord === "") {
+      const { movies } = this.state.data.data;
+      this.setState({ ...this.state, filteredData: movies });
+    }
+  };
 
   render() {
     if (!this.state.data) return <Spinner />;
-    const { movies } = this.state.data;
-    // console.log(movies);
-    // console.log(this.state.data.movies);
+    const filteredData = this.state.filteredData;
+
     return (
       <>
         <HeaderComponents />
         <div className="cardsHeader" id="movies">
           <h2>All Movies</h2>
         </div>
-        <SearchBar />
-        <div id="contanerAllCards">
-          {movies.map((movie) => (
+        <SearchBar onSearch={this.handleSearch} />
+        <div id="containerAllCards">
+          {filteredData.map((movie) => (
             <CardsComponents movie={movie} />
           ))}
         </div>

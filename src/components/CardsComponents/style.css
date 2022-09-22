@@ -52,7 +52,7 @@ body{
   color: orange;
 }
 
-#contanerAllCards{
+#containerAllCards{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
